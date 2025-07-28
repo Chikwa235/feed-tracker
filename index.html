@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FEED - Food Expiry & Donation Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🌍 FEED - Food Expiry & Donation Tracker</h1>
+    <div style="text-align: center; margin: 1rem auto 2rem;">
+  <button id="darkToggleBtn">🌙 Enable Dark Mode</button>
+
+</div>
+    <form id="foodForm">
+      <input type="text" id="foodName" placeholder="Food Name" required />
+      <input type="date" id="expiryDate" required />
+      <select id="foodType">
+        <option value="fruits">Fruits</option>
+        <option value="vegetables">Vegetables</option>
+        <option value="canned">Canned</option>
+        <option value="dry">Dry Goods</option>
+        <option value="leftovers">Leftovers</option>
+      </select>
+      <button type="submit">Add</button>
+    </form>
+  </header>
+
+  <section class="filters">
+  <button type="button" data-type="all">📦 All</button>
+  <button type="button" data-type="fruits">🍎 Fruits</button>
+  <button type="button" data-type="vegetables">🥦 Vegetables</button>
+  <button type="button" data-type="canned">🥫 Canned</button>
+  <button type="button" data-type="dry">🍞 Dry Goods</button>
+  <button type="button" data-type="leftovers">🍽️ Leftovers</button>
+</section>
+
+    <input type="search" id="searchBox" placeholder="Search your food items..." />
+  </div>
+
+  <section>
+    <h2>Your Food Items</h2>
+    <ul id="foodItems"></ul>
+    <p><strong>Saved Items:</strong> <span id="savedItems">0</span></p>
+  </section>
+
+  <section>
+    <h2>Donate Near You</h2>
+    <p id="donateLink" aria-live="polite">
+      🌍 Based on your location (<strong id="userRegion">Loading...</strong>): 
+      <a id="donateCenterLink" href="https://www.google.com/search?q=food+donation+near+me" target="_blank" rel="noopener noreferrer">Find Donation Center</a>
+    </p>
+    <iframe class="map-frame" id="mapFrame" loading="lazy" title="Nearby Food Donation Centers"></iframe>
+  </section>
+
+  <section>
+    <h2>I Want to Donate</h2>
+    <form
+      class="donate-form"
+    >
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Describe what you want to donate" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <section>
+    <h2>NGO Contacts Near You</h2>
+
+    <div class="ngo-card" role="region" aria-label="Ukrainian Crisis Food and Aid Donation">
+      <strong>United24 (Ukraine Crisis Relief)</strong><br />
+      Website: <a href="https://u24.gov.ua/en" target="_blank" rel="noopener noreferrer">https://u24.gov.ua/en</a><br />
+      Donate Food & Aid or Money to Ukraine
+    </div>
+
+    <div class="ngo-card" role="region" aria-label="World Food Programme">
+  <strong>World Food Programme</strong><br />
+  Website: <a href="https://www.wfp.org/emergencies" target="_blank" rel="noopener noreferrer">https://www.wfp.org/emergencies</a><br />
+  Global Food Aid for Crisis Zones
+</div>
+
+
+    <div class="ngo-card" role="region" aria-label="FoodBank Zambia">
+      <strong>FoodBank Zambia</strong><br />
+      Email: <a href="mailto:info@givedirectly.org">info@givedirectly.org</a><br />
+      Website: <a href="https://www.givedirectly.org/covid-19/africa/#zambia" target="_blank" rel="noopener noreferrer">https://www.givedirectly.org/covid-19/africa/#zambia</a>
+    </div>
+
+    <div class="ngo-card" role="region" aria-label="Feeding America">
+      <strong>Feeding America</strong><br />
+      Email: <a href="mailto:info@feedingamerica.org">info@feedingamerica.org</a><br />
+      Website: <a href="https://www.feedingamerica.org" target="_blank" rel="noopener noreferrer">https://www.feedingamerica.org</a>
+    </div>
+  </section>
+
+  <section id="analytics">
+    Most Wasted Food Type: <span id="mostWasted">Calculating...</span>
+    <canvas id="foodTypeChart" width="400" height="200" style="margin-top: 2rem;"></canvas>
+  </section>
+
+  <footer>&copy; 2025 FEED App | Built with 💡 by Chisapa</footer>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script src="script.js">
+  </script>
+</body>
+</html>
